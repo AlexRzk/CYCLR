@@ -1,0 +1,365 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   CYCLR - Immersive Experience Styles
+   Bioluminescent + Glassmorphism 2.0
+   ======================================== */
+
+:root {
+  /* Core Colors */
+  --void: #050505;
+  --void-deep: #020202;
+  --void-surface: #0A0A0A;
+  --holographic: #E2E8F0;
+  --holographic-bright: #F8FAFC;
+  --chlorophyll: #00FF94;
+  --chlorophyll-glow: rgba(0, 255, 148, 0.5);
+  --cyber: #2563EB;
+  --cyber-glow: rgba(37, 99, 235, 0.5);
+  
+  /* Glass Properties */
+  --glass-bg: rgba(0, 0, 0, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-blur: 20px;
+  --glass-saturate: 180%;
+}
+
+/* ========================================
+   Base & Reset
+   ======================================== */
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  background-color: var(--void);
+  color: var(--holographic);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: var(--void);
+  color: var(--holographic);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for immersive experience */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================
+   Glassmorphism 2.0 - HUD Style
+   ======================================== */
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+}
+
+.glass-panel-lg {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+}
+
+.glass-button {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button:hover {
+  background: rgba(0, 255, 148, 0.1);
+  border-color: rgba(0, 255, 148, 0.3);
+  box-shadow: 0 0 30px rgba(0, 255, 148, 0.15);
+}
+
+/* HUD-style borders with glow */
+.hud-border {
+  position: relative;
+}
+
+.hud-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 148, 0.3) 0%,
+    rgba(0, 255, 148, 0) 50%,
+    rgba(37, 99, 235, 0.3) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ========================================
+   Neon Glow Effects
+   ======================================== */
+
+.glow-chlorophyll {
+  box-shadow: 
+    0 0 20px rgba(0, 255, 148, 0.15),
+    0 0 40px rgba(0, 255, 148, 0.1),
+    0 0 60px rgba(0, 255, 148, 0.05);
+}
+
+.glow-cyber {
+  box-shadow: 
+    0 0 20px rgba(37, 99, 235, 0.2),
+    0 0 40px rgba(37, 99, 235, 0.15),
+    0 0 60px rgba(37, 99, 235, 0.1);
+}
+
+.text-glow-chlorophyll {
+  text-shadow: 
+    0 0 10px rgba(0, 255, 148, 0.5),
+    0 0 20px rgba(0, 255, 148, 0.3),
+    0 0 30px rgba(0, 255, 148, 0.2);
+}
+
+.text-glow-cyber {
+  text-shadow: 
+    0 0 10px rgba(37, 99, 235, 0.5),
+    0 0 20px rgba(37, 99, 235, 0.3),
+    0 0 30px rgba(37, 99, 235, 0.2);
+}
+
+/* Animated glow pulse */
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(0, 255, 148, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(0, 255, 148, 0.6));
+  }
+}
+
+/* ========================================
+   Typography - Futuristic Display
+   ======================================== */
+
+.text-display {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.text-gradient-chlorophyll {
+  background: linear-gradient(135deg, #00FF94 0%, #4DFFC0 50%, #00CC77 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyber {
+  background: linear-gradient(135deg, #2563EB 0%, #60A5FA 50%, #1D4ED8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-mixed {
+  background: linear-gradient(135deg, #00FF94 0%, #2563EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   Interactive Elements
+   ======================================== */
+
+/* Magnetic button base */
+.magnetic-button {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Cursor-aware link underline */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--chlorophyll);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   Canvas & 3D Layer Utilities
+   ======================================== */
+
+.canvas-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.canvas-container.interactive {
+  pointer-events: auto;
+}
+
+.dom-layer {
+  position: relative;
+  z-index: 10;
+}
+
+/* ========================================
+   Section Markers for Scrollytelling
+   ======================================== */
+
+.section-marker {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   Loading & Transitions
+   ======================================== */
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Loader */
+.loader-ring {
+  width: 60px;
+  height: 60px;
+  border: 2px solid transparent;
+  border-top-color: var(--chlorophyll);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   Responsive Utilities
+   ======================================== */
+
+@media (max-width: 768px) {
+  .glass-panel {
+    --glass-blur: 12px;
+  }
+  
+  .section-marker {
+    min-height: 80vh;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html.lenis,
+  html.lenis body {
+    scroll-behavior: auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
