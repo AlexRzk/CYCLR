@@ -1,39 +1,26 @@
 # CYCLR
 
-CYCLR is a frontend prototype for a circular economy platform built around product lifecycle tracking, digital product passports, staking mechanics and recycling rewards.
+CYCLR is a frontend prototype for a circular economy platform. It shows how products could be tracked from creation to recycling through digital product passports, staking mechanics and reward-based returns.
 
-The idea is simple: every product can carry value throughout its lifecycle. Instead of becoming waste at the end of use, a product can be tracked, returned, recycled and rewarded through a transparent digital system.
+The project focuses on the user experience rather than the final blockchain implementation. It includes a landing page, a product dashboard, QR code scanning, theme switching and animated sections that explain the product lifecycle.
 
-The current version focuses on the user experience: an animated landing page, a product dashboard, QR code scanning, theme switching and a polished visual identity inspired by solarpunk, soft 3D interfaces and sustainability-focused product design.
+## Overview
 
-## What CYCLR does
+CYCLR is built around a simple idea: a product should not lose all value once it reaches the end of its use. By giving each product a digital identity, the platform can show where it comes from, who owns it, how much value is attached to it, and what happens when it is returned or recycled.
 
-CYCLR presents a product lifecycle flow based on three main stages:
-
-1. **Track production**  
-   Products are registered with a unique digital identity. The platform is designed to represent manufacturing data, materials, sustainability metrics and ownership history.
-
-2. **Stake and earn**  
-   Registered products are associated with staked value. The prototype shows how users could manage products, view wallet data and track potential rewards.
-
-3. **Recycle and collect**  
-   At the end of a product's lifecycle, the user can return it through a recycling flow and receive rewards for closing the loop.
-
-The project is currently a frontend prototype. Blockchain, wallet and product data are represented through mocked state and demo data, which makes the app useful for presenting the concept, testing the interface and preparing future integrations.
+The current version is a frontend demo. Wallet data, products and rewards are mocked locally, which makes the project useful as a proof of concept before connecting real APIs, smart contracts or a database.
 
 ## Main features
 
-- Animated landing page presenting the CYCLR concept
-- Product lifecycle storytelling
-- QR code scanner for product identification
-- User dashboard with mock wallet data
-- Product cards with lifecycle status, staked value and recycling rewards
+- Landing page explaining the CYCLR concept
+- Product lifecycle flow: production, staking, recycling
+- Dashboard with product cards, wallet balance, staked value and rewards
+- QR code scanner using camera on mobile and image upload on desktop
 - Day and night theme system
-- Smooth UI animations with Framer Motion
-- Responsive design
-- Tailwind-based design system
-- State management with Zustand
-- Prepared visual direction for future 3D assets with React Three Fiber
+- Smooth animations and scroll-based interactions
+- Responsive interface
+- Local state management for demo data
+- Design direction prepared for future 3D assets
 
 ## Tech stack
 
@@ -44,9 +31,7 @@ The project is currently a frontend prototype. Blockchain, wallet and product da
 - Framer Motion
 - Zustand
 - html5-qrcode
-- Three.js
-- React Three Fiber
-- React Three Drei
+- Three.js / React Three Fiber
 - GSAP
 - Lenis
 
@@ -60,10 +45,7 @@ frontend/
 ├── src/
 │   ├── app/
 │   │   ├── (experience)/
-│   │   │   └── page.tsx
 │   │   ├── (platform)/
-│   │   │   └── dashboard/
-│   │   │       └── page.tsx
 │   │   ├── globals.css
 │   │   ├── layout.tsx
 │   │   └── provider.tsx
@@ -83,64 +65,40 @@ frontend/
 └── tsconfig.json
 ```
 
-## Getting started
-
-Clone the repository:
+## Run locally
 
 ```bash
 git clone https://github.com/AlexRzk/CYCLR.git
 cd CYCLR/frontend
-```
-
-Install dependencies:
-
-```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-Open the app in your browser:
+Then open:
 
 ```txt
 http://localhost:3000
 ```
 
-Build the project:
-
-```bash
-npm run build
-```
-
-Run the production build locally:
-
-```bash
-npm run start
-```
-
-## Available scripts
+## Scripts
 
 ```bash
 npm run dev
 ```
 
-Starts the Next.js development server.
+Starts the development server.
 
 ```bash
 npm run build
 ```
 
-Creates a production build.
+Builds the project for production.
 
 ```bash
 npm run start
 ```
 
-Starts the production server after building the app.
+Runs the production build locally.
 
 ```bash
 npm run lint
@@ -150,36 +108,22 @@ Runs the Next.js lint command.
 
 ## Current status
 
-CYCLR is currently a visual and functional frontend prototype.
+CYCLR is not connected to a real blockchain yet. The wallet connection, product list, balances and rewards are currently simulated in the frontend.
 
-The app already includes the main user-facing screens and interactions, but the blockchain layer is not connected yet. Wallet connection, balances, products and rewards are currently simulated through local state and mock data.
+The next step would be to connect the interface to real data: wallet provider, product database, QR records and smart contracts for staking or rewards.
 
-This makes the project a strong base for:
+## Possible improvements
 
-- pitching the product concept
-- testing the user experience
-- presenting the circular economy flow
-- preparing future smart contract or API integrations
-- building a complete product lifecycle dashboard
-
-## Possible next steps
-
-- Connect a real wallet provider
-- Replace mock products with real API data
-- Add product detail pages
-- Store QR scan results in a database
-- Implement real digital product passports
-- Add smart contract integration for staking and rewards
-- Create a brand or admin interface for registering products
+- Add real wallet connection
+- Replace mock products with database data
+- Create product detail pages
+- Save QR scan results
 - Add authentication
+- Connect staking and reward logic to smart contracts
+- Build an admin interface for brands
 - Improve SEO metadata
-- Add production deployment configuration
-- Replace placeholder statistics with real platform metrics
+- Add deployment documentation
 
-## Vision
+## Goal
 
-CYCLR explores how product ownership could become more transparent, valuable and sustainable.
-
-Instead of treating recycling as the end of a product's life, CYCLR turns it into a measurable and rewarding action. Products can be tracked from creation to return, users can see the value connected to what they own, and brands can build stronger circular economy systems around their goods.
-
-The project is a first step toward a platform where every product has a history, every return has value, and every sustainable action can be rewarded.
+CYCLR explores a more transparent way to manage product ownership and recycling. The goal is to make each product traceable, give users a clear view of its value, and reward actions that help close the loop between use, return and recycling.
