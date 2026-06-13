@@ -1,14 +1,14 @@
 # CYCLR
 
-CYCLR is a frontend prototype for a circular economy platform. It shows how products could be tracked from creation to recycling through digital product passports, staking mechanics and reward-based returns.
+This is a full-stack circular economy project that allows products to be tracked from creation to recycling through digital product passports, NFTs, smart contracts and reward-based returns.
 
-The project focuses on the user experience rather than the final blockchain implementation. It includes a landing page, a product dashboard, QR code scanning, theme switching and animated sections that explain the product lifecycle.
+The project includes a frontend interface for product tracking, QR scanning and lifecycle visualization, as well as a backend that handles the contract and NFT logic. The main remaining step is to connect the frontend and backend together so the interface can use the completed backend features directly.
 
 ## Overview
 
 CYCLR is built around a simple idea: a product should not lose all value once it reaches the end of its use. By giving each product a digital identity, the platform can show where it comes from, who owns it, how much value is attached to it, and what happens when it is returned or recycled.
 
-The current version is a frontend demo. Wallet data, products and rewards are mocked locally, which makes the project useful as a proof of concept before connecting real APIs, smart contracts or a database.
+The application is designed to support a complete circular flow: products are created, associated with digital ownership, followed through their lifecycle, then returned or recycled in exchange for rewards.
 
 ## Main features
 
@@ -16,10 +16,12 @@ The current version is a frontend demo. Wallet data, products and rewards are mo
 - Product lifecycle flow: production, staking, recycling
 - Dashboard with product cards, wallet balance, staked value and rewards
 - QR code scanner using camera on mobile and image upload on desktop
+- Backend logic for contract and NFT creation
+- Smart contract based product tracking and reward logic
 - Day and night theme system
 - Smooth animations and scroll-based interactions
 - Responsive interface
-- Local state management for demo data
+- Local frontend state while the frontend/backend connection is being finalized
 - Design direction prepared for future 3D assets
 
 ## Tech stack
@@ -34,6 +36,7 @@ The current version is a frontend demo. Wallet data, products and rewards are mo
 - Three.js / React Three Fiber
 - GSAP
 - Lenis
+- Smart contracts and NFT logic on the backend side
 
 ## Project structure
 
@@ -108,19 +111,18 @@ Runs the Next.js lint command.
 
 ## Current status
 
-CYCLR is not connected to a real blockchain yet. The wallet connection, product list, balances and rewards are currently simulated in the frontend.
+CYCLR is mostly complete from a project architecture point of view. The backend already handles the contract and NFT side of the application, while the frontend provides the user-facing experience.
 
-The next step would be to connect the interface to real data: wallet provider, product database, QR records and smart contracts for staking or rewards.
+The frontend and backend are not connected yet. For now, the interface still uses local demo data in some places, but the backend logic is intended to replace those mocked flows once the integration is completed.
 
 ## Possible improvements
 
-- Add real wallet connection
-- Replace mock products with database data
+- Connect the frontend to the backend
+- Replace local demo data with backend data
+- Connect the wallet flow to the contract logic
 - Create product detail pages
-- Save QR scan results
-- Add authentication
-- Connect staking and reward logic to smart contracts
-- Build an admin interface for brands
+- Save and process QR scan results through the backend
+- Add authentication if needed
 - Improve SEO metadata
 - Add deployment documentation
 
